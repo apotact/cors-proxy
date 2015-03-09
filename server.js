@@ -110,6 +110,9 @@ function processRequest(req, res)
 			}
 		}
 
+    // Set host header to remote host
+    req.headers["host"] = remoteURL.host;
+
 		var proxyRequest = request({
 			url: remoteURL,
 			headers: req.headers,
@@ -198,4 +201,4 @@ http.createServer(function (req, res) {
 
 }).listen(config.port);
 
-console.log("thingproxy.freeboard.io started");
+console.log("apoproxy started");
